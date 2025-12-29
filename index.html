@@ -102,6 +102,20 @@
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <audio id="myAudio" src="audio.mp3" loop></audio>
+
+<script>
+    // Lấy phần tử audio
+    const audio = document.getElementById('myAudio');
+
+    // Lắng nghe sự kiện chạm vào màn hình
+    document.body.addEventListener('click', () => {
+        // Phát nhạc
+        audio.play().catch(error => {
+            console.log('Không thể phát âm thanh:', error);
+        });
+    }, { once: true }); // Sự kiện chỉ xảy ra một lần
+</script>
     <video id="input-video" playsinline autoplay muted></video>
     <div id="canvas-container"></div>
     <div id="virtual-cursor"></div>
